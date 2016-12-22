@@ -2,7 +2,7 @@ package yutiantian.baserecycler.bean;
 
 /**
  * Created by Tina on 2016/10/11.
- * Description:导航分组头基类对象
+ * Description:
  */
 
 public class StickyBaseBean {

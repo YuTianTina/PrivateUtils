@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'//添加
+
 def supportVersion='22.2.1'
 android {
     compileSdkVersion 22
@@ -20,6 +22,9 @@ android {
         }
     }
 }
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -30,3 +35,17 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:recyclerview-v7:'+supportVersion
 }
+
+publish {
+    userOrg = 'yutina'//bintray.com组织名
+    groupId = 'com.yutiantina'//jcenter上的路径
+    artifactId = 'uama-tina'//项目名称
+    publishVersion = '1.0.0'//版本号
+    desc ='通用'//描述，不重要
+    website = 'https://github.com/YuTianTina/PrivateUtils'//网站，不重要；尽量模拟github上的地址
+}
+
+
+
+
+

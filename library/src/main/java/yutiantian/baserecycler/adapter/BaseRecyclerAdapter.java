@@ -23,12 +23,9 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<ViewHo
     private final  static int NORMAL_TYPE=1;
     private final static int LOAD_MORE_TYPE=2;
     private int mLayoutID;
-    /*-----分页----*/
-    // 当前页
+
     private int curPage = 1;
-    // 每页多少行
     private int row = 20;
-    //是否有下一页
     public  boolean hasMore=false;
     protected  boolean isLoading=false;
     protected void resetPage(){
@@ -46,17 +43,16 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<ViewHo
         mLists=list;
         mLayoutID=layoutID;
         final LinearLayoutManager linearLayoutManager= (LinearLayoutManager) recyclerView.getLayoutManager();
-        if(linearLayoutManager instanceof LinearLayoutManager){//线性布局下的recyclerview滚动分页
+        if(linearLayoutManager instanceof LinearLayoutManager){
             recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
                 @Override
                 public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                     super.onScrolled(recyclerView, dx, dy);
-                    int totalItemCount = linearLayoutManager.getItemCount();
                     int lastVisibleItemPosition = linearLayoutManager.findLastVisibleItemPosition();
                     if(recyclerView.getAdapter().getItemCount()>1&&lastVisibleItemPosition>=recyclerView.getAdapter().getItemCount()-1
                             &&hasMore&&!isLoading){
                         if(mOnLoadMoreListener!=null){
-                            mLists.add(null);//null值为分页加载页
+                            mLists.add(null);
                             recyclerView.getAdapter().notifyDataSetChanged();
                             mOnLoadMoreListener.onLoadMoreRequest();
                             isLoading=true;
@@ -66,13 +62,13 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<ViewHo
             });
         }
     }
-    //上拉加载到底部更新数据前,需要移除底部加载布局
+
     public void finishLoadMore(){
         mLists.remove(mLists.size()-1);
         notifyDataSetChanged();
         isLoading=false;
     }
-    //点击事件
+
     protected void setListener( final ViewHolder viewHolder) {
         viewHolder.getConvertView().setOnClickListener(new View.OnClickListener() {
             @Override

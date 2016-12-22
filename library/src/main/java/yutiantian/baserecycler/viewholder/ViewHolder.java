@@ -51,10 +51,8 @@ public class ViewHolder extends RecyclerView.ViewHolder
     }
 
     /**
-     * 通过viewId获取控件
-     *
+     * find the View by thie view resId
      * @param viewId
-     * @return
      */
     public <T extends View> T getView(int viewId)
     {
@@ -75,14 +73,11 @@ public class ViewHolder extends RecyclerView.ViewHolder
 
 
 
-    /****以下为辅助方法*****/
-
     /**
-     * 设置TextView的值
+     * set TextView Value
      *
      * @param viewId
      * @param text
-     * @return
      */
     public ViewHolder setText(int viewId, String text)
     {
@@ -247,10 +242,9 @@ public class ViewHolder extends RecyclerView.ViewHolder
     }
 
     /**
-     * 关于事件的
+     * about the Listener
      */
-    public ViewHolder setOnClickListener(int viewId,
-                                         View.OnClickListener listener)
+    public ViewHolder setOnClickListener(int viewId,View.OnClickListener listener)
     {
         View view = getView(viewId);
         view.setOnClickListener(listener);

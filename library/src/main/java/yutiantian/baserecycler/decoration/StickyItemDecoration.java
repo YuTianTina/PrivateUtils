@@ -16,7 +16,7 @@ import yutiantian.baserecycler.bean.StickyBaseBean;
 
 /**
  * Created by Tina on 2016/10/11.
- * Description:导航分组头
+ * Description:StickyHead
  */
 
 public class StickyItemDecoration<T extends StickyBaseBean> extends RecyclerView.ItemDecoration {
@@ -91,18 +91,16 @@ public class StickyItemDecoration<T extends StickyBaseBean> extends RecyclerView
             final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
                     .getLayoutParams();
             int position = params.getViewLayoutPosition();
-            //我记得Rv的item position在重置时可能为-1.保险点判断一下吧
             if (position > -1) {
-                if (position == 0) {//等于0肯定要有title的
+                if (position == 0) {
                     drawTitleArea(c, left, right, child, params, position);
 
-                } else {//其他的通过判断
+                } else {
                     if(mList.size()<=position)
                         return;
                     if(mList.get(position)==null)
                         return;
                     if (null != mList.get(position).getHeadMsg() && !mList.get(position).getHeadMsg().equals(mList.get(position - 1).getHeadMsg())) {
-                        //不为空 且跟前一个tag不一样了，说明是新的分类，也要title
                         drawTitleArea(c, left, right, child, params, position);
                     } else {
                         //none
@@ -113,7 +111,7 @@ public class StickyItemDecoration<T extends StickyBaseBean> extends RecyclerView
     }
 
     /**
-     * 绘制Title区域背景和文字的方法
+     * draw Title backgroud
      *
      * @param c
      * @param left
@@ -122,7 +120,7 @@ public class StickyItemDecoration<T extends StickyBaseBean> extends RecyclerView
      * @param params
      * @param position
      */
-    private void drawTitleArea(Canvas c, int left, int right, View child, RecyclerView.LayoutParams params, int position) {//最先调用，绘制在最下层
+    private void drawTitleArea(Canvas c, int left, int right, View child, RecyclerView.LayoutParams params, int position) {//first draw
         mPaint.setColor(COLOR_TITLE_BG);
         c.drawRect(left, child.getTop() - params.topMargin - mTitleHeight, right, child.getTop() - params.topMargin, mPaint);
         mPaint.setColor(COLOR_TITLE_FONT);
