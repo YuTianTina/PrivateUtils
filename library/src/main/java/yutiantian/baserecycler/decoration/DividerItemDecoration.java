@@ -11,7 +11,6 @@ import android.view.View;
 
 /**
  * Created by Tina on 2016/7/18.
- *
  */
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
@@ -24,7 +23,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     private int mOrientation;
 
     public DividerItemDecoration(Context context, int orientation, int drawableID) {
-        mDivider= ContextCompat.getDrawable(context,drawableID);
+        mDivider = ContextCompat.getDrawable(context, drawableID);
         setOrientation(orientation);
     }
 

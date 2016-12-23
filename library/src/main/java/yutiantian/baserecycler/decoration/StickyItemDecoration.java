@@ -15,8 +15,7 @@ import java.util.List;
 import yutiantian.baserecycler.bean.StickyBaseBean;
 
 /**
- * Created by Tina on 2016/10/11.
- * Description:StickyHead
+ * Created by Tina on 2016/10/11. Description:StickyHead
  */
 
 public class StickyItemDecoration<T extends StickyBaseBean> extends RecyclerView.ItemDecoration {
@@ -35,8 +34,8 @@ public class StickyItemDecoration<T extends StickyBaseBean> extends RecyclerView
 
     public StickyItemDecoration(Context mContext, List<T> mList) {
         this.mList = mList;
-        this.mPaint=new Paint();
-        this.mBounds=new Rect();
+        this.mPaint = new Paint();
+        this.mBounds = new Rect();
         mTitleHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, mContext.getResources().getDisplayMetrics());
         mTitleFontSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, mContext.getResources().getDisplayMetrics());
         mPaint.setTextSize(mTitleFontSize);
@@ -46,29 +45,29 @@ public class StickyItemDecoration<T extends StickyBaseBean> extends RecyclerView
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
-        int position=((RecyclerView.LayoutParams)view.getLayoutParams()).getViewLayoutPosition();
-        if(position<=-1)
+        int position = ((RecyclerView.LayoutParams) view.getLayoutParams()).getViewLayoutPosition();
+        if (position <= -1)
             return;
-        if(position==0){
-            outRect.set(0,mTitleHeight,0,0);
-        }else{
-            if(mList.size()<=position)
+        if (position == 0) {
+            outRect.set(0, mTitleHeight, 0, 0);
+        } else {
+            if (mList.size() <= position)
                 return;
-            if(mList.get(position)==null)
+            if (mList.get(position) == null)
                 return;
-            if(mList.get(position).getHeadMsg()!=null&&!mList.get(position).getHeadMsg().equals(mList.get(position-1).getHeadMsg())){
-                outRect.set(0,mTitleHeight,0,0);
-            }else{
-                outRect.set(0,0,0,0);
+            if (mList.get(position).getHeadMsg() != null && !mList.get(position).getHeadMsg().equals(mList.get(position - 1).getHeadMsg())) {
+                outRect.set(0, mTitleHeight, 0, 0);
+            } else {
+                outRect.set(0, 0, 0, 0);
             }
         }
     }
 
     @Override
     public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
-        int pos = ((LinearLayoutManager)(parent.getLayoutManager())).findFirstVisibleItemPosition();
+        int pos = ((LinearLayoutManager) (parent.getLayoutManager())).findFirstVisibleItemPosition();
 
-        String headMsg=mList.get(pos).getHeadMsg();
+        String headMsg = mList.get(pos).getHeadMsg();
         //View child = parent.getChildAt(pos);
         View child = parent.findViewHolderForLayoutPosition(pos).itemView;
         mPaint.setColor(COLOR_TITLE_BG);
@@ -96,9 +95,9 @@ public class StickyItemDecoration<T extends StickyBaseBean> extends RecyclerView
                     drawTitleArea(c, left, right, child, params, position);
 
                 } else {
-                    if(mList.size()<=position)
+                    if (mList.size() <= position)
                         return;
-                    if(mList.get(position)==null)
+                    if (mList.get(position) == null)
                         return;
                     if (null != mList.get(position).getHeadMsg() && !mList.get(position).getHeadMsg().equals(mList.get(position - 1).getHeadMsg())) {
                         drawTitleArea(c, left, right, child, params, position);
@@ -112,13 +111,6 @@ public class StickyItemDecoration<T extends StickyBaseBean> extends RecyclerView
 
     /**
      * draw Title backgroud
-     *
-     * @param c
-     * @param left
-     * @param right
-     * @param child
-     * @param params
-     * @param position
      */
     private void drawTitleArea(Canvas c, int left, int right, View child, RecyclerView.LayoutParams params, int position) {//first draw
         mPaint.setColor(COLOR_TITLE_BG);
