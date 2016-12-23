@@ -1,14 +1,13 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'//添加
 
-def supportVersion='22.2.1'
+def supportVersion='23'
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
         minSdkVersion 18
-        targetSdkVersion 22
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
 
@@ -28,22 +27,16 @@ tasks.withType(JavaCompile) {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:'+supportVersion
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:recyclerview-v7:'+supportVersion
+//    compile 'com.android.support:appcompat-v7:'+supportVersion
+//    compile 'com.android.support:design:'+supportVersion
+//    compile 'com.android.support:recyclerview-v7:'+supportVersion
+    compile 'com.android.support:support-annotations:24.1.0'
+    compile 'com.android.support:design:23.4.0'
+    compile 'com.android.support:recyclerview-v7:23'
 }
 
-publish {
-    userOrg = 'yutina'//bintray.com组织名
-    groupId = 'com.yutiantina'//jcenter上的路径
-    artifactId = 'uama-tina'//项目名称
-    publishVersion = '1.0.0'//版本号
-    desc ='通用'//描述，不重要
-    website = 'https://github.com/YuTianTina/PrivateUtils'//网站，不重要；尽量模拟github上的地址
-}
+apply from: "bintrayUpload.gradle"
 
 
 

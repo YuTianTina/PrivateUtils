@@ -24,10 +24,10 @@ public class StickyItemDecoration<T extends StickyBaseBean> extends RecyclerView
     private Paint mPaint;
     private Rect mBounds;
 
-    private int mTitleHeight;//title的高
+    private int mTitleHeight;
     private static int COLOR_TITLE_BG = Color.parseColor("#FFDFDFDF");
     private static int COLOR_TITLE_FONT = Color.parseColor("#FF000000");
-    private static int mTitleFontSize;//title字体大小
+    private static int mTitleFontSize;
 
     public void setmList(List<T> mList) {
         this.mList = mList;

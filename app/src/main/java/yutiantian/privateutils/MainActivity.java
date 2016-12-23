@@ -13,7 +13,6 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import yutiantian.baserecycler.adapter.BaseRecyclerAdapter;
-import yutiantian.baserecycler.decoration.DividerItemDecoration;
 import yutiantian.privateutils.adapter.MainAdapter;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         LinearLayoutManager llm=new LinearLayoutManager(this);
         rvList.setLayoutManager(llm);
-        rvList.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL_LIST,R.drawable.divider));
+//        rvList.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL_LIST,R.drawable.divider));
         mAdapter=new MainAdapter(this,rvList,mList);
         rvList.setAdapter(mAdapter);
         mAdapter.setmOnLoadMoreListener(new BaseRecyclerAdapter.OnLoadMoreListener() {
