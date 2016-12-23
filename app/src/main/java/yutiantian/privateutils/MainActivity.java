@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         LinearLayoutManager llm=new LinearLayoutManager(this);
         rvList.setLayoutManager(llm);
-//        rvList.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL_LIST,R.drawable.divider));
+//        rvList.addItemDecoration(new DividerItemDecoration2(this,DividerItemDecoration2.VERTICAL_LIST,R.drawable.divider));
         mAdapter=new MainAdapter(this,rvList,mList);
         rvList.setAdapter(mAdapter);
         mAdapter.setmOnLoadMoreListener(new BaseRecyclerAdapter.OnLoadMoreListener() {

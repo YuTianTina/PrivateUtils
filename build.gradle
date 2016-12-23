@@ -18,9 +18,6 @@ allprojects {
     repositories {
         jcenter()
     }
-}
-
-allprojects {
     tasks.withType(Javadoc) {
         options{
             encoding "UTF-8"
@@ -28,5 +25,11 @@ allprojects {
             links "http://docs.oracle.com/javase/7/docs/api"
         }
     }
+    tasks.withType(Javadoc) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+        options.addStringOption('encoding', 'UTF-8')
+    }
+
 }
+
 
