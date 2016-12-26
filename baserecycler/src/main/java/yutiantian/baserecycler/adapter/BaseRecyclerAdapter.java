@@ -24,8 +24,8 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<ViewHo
     private final static int LOAD_MORE_TYPE=2;
     private int mLayoutID;
 
-    private int curPage = 1;
-    private int row = 20;
+    public int curPage = 1;
+    public int row = 20;
     public  boolean hasMore=false;
     protected  boolean isLoading=false;
     protected void resetPage(){
