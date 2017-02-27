@@ -28,12 +28,12 @@ public class BaseSwipeRefreshLayout extends SwipeRefreshLayout {
     public void setColors(int[] colorResIds){
         this.colors = colorResIds;
     }
-
+    //控件默认初始化
     public void initSwipeRefresh(OnRefreshListener onRefreshListener){
         refreshLayout.setColorSchemeColors(colors);
         refreshLayout.setOnRefreshListener(onRefreshListener);
     }
-
+    //自动刷新
     public void refreshDelay(RefreshDoingListener onRefreshDoing){
         this.setColorSchemeColors(colors);
         new Handler().postDelayed(new Runnable() {
@@ -45,7 +45,7 @@ public class BaseSwipeRefreshLayout extends SwipeRefreshLayout {
         refreshLayout.setRefreshing(true);
         onRefreshDoing.refreshDoing();
     }
-
+    //刷新完成
     public void refreshComplete(){
         new Handler().postDelayed(new Runnable() {
             @Override
