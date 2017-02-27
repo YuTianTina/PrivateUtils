@@ -1,1 +1,1 @@
-include ':app', ':tina-normal', ':baserecycler'
+include ':app', ':tina-normal'

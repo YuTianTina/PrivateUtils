@@ -29,14 +29,4 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-//publish {
-//    artifactId = 'uama-tina-normal'//项目名称
-//    userOrg = rootProject.userOrg
-//    groupId = rootProject.groupId
-//    uploadName = rootProject.uploadName
-//    publishVersion = "1.0.1"//版本号
-//    desc = rootProject.description
-//    website = rootProject.website
-//    licences = rootProject.licences
-//}
 apply from: "bintrayUpload.gradle"
