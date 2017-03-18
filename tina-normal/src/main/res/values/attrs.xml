@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--自带清除的EditText-->
+    <declare-styleable name="EditTextWithClear">
+        <!--清除icon资源文件-->
+        <attr name="clear_icon_src" format="reference"/>
+    </declare-styleable>
+</resources>
