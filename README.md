@@ -6,4 +6,5 @@
 2. 版本说明:
  - 1. 无内容
  - 2. 1.0.1: 刷新控件封装
+ - 3. 1.0.2: 增加NormalEditText,以及自带清除icon的EditText - EditTextWithClear
 
