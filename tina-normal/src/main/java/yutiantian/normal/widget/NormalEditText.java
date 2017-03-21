@@ -1,4 +1,4 @@
-package yutiantian.normal.view;
+package yutiantian.normal.widget;
 
 import android.content.Context;
 import android.text.TextUtils;

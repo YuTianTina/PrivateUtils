@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="yutiantian.privateutils.MainActivity">
-        <yutiantian.normal.view.EditTextWithClear
+        <yutiantian.normal.widget.EditTextWithClear
                 android:id="@+id/et_clear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>

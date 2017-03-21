@@ -8,7 +8,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import yutiantian.normal.view.EditTextWithClear;
+import yutiantian.normal.widget.EditTextWithClear;
 
 public class MainActivity extends Activity {
 

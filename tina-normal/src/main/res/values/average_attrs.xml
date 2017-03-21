@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--通用的横向均分-->
+    <declare-styleable name="AverageImageView">
+        <!--横向均分个数-->
+        <attr name="average_number" format="integer"/>
+        <!--间隙-->
+        <attr name="average_space" format="dimension"/>
+        <!--宽高比-->
+        <attr name="average_ratio" format="float"/>
+    </declare-styleable>
+</resources>
