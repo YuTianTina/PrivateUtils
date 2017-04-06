@@ -30,9 +30,9 @@ public class NormalEditText extends EditText {
      * 填充文本后,光标自动切到最后一位
      */
     public void setNormalText(CharSequence text) {
-        if (!TextUtils.isEmpty(text)) {
-            this.setSelection(text.length());
-        }
         this.setText(text);
+        if (!TextUtils.isEmpty(getText())) {
+            this.setSelection(getText().length());
+        }
     }
 }
