@@ -6,7 +6,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -26,7 +25,7 @@ public class StatusBarCompat {
      * @param statusColor
      */
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public static void compat(Activity activity, @ColorRes int statusColor)
+    public static void compat(Activity activity, @ColorInt int statusColor)
     {
         //当前手机版本为5.0及以上
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
