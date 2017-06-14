@@ -8,4 +8,5 @@
  - 2. 1.0.1: 刷新控件封装
  - 3. 1.0.2: 增加NormalEditText,以及自带清除icon的EditText - EditTextWithClear
  - 4. 1.0.3: 增加配置宽高比的横向布局均分的ImageView控件
+ - 5. 1.0.4: 增加格式化编辑监听工具
 
