@@ -1,4 +1,4 @@
-package com.work.yutiantian.dateformatedittext;
+package yutiantian.normal.utils;
 
 import android.text.Editable;
 import android.text.InputFilter;
