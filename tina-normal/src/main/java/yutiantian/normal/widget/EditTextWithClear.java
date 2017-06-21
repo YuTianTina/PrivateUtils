@@ -2,6 +2,9 @@ package yutiantian.normal.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
@@ -15,7 +18,7 @@ import yutiantian.library2.R;
 
 public class EditTextWithClear extends NormalEditText {
     private Context context;
-    private int drawableResId;
+    private @DrawableRes int drawableResId;
 
     public EditTextWithClear(Context context) {
         super(context);
@@ -26,6 +29,7 @@ public class EditTextWithClear extends NormalEditText {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.EditTextWithClear);
         drawableResId = typedArray.getResourceId(R.styleable.EditTextWithClear_clear_icon_src, -1);
         init(context);
+        typedArray.recycle();
     }
 
     private void init(Context context) {
@@ -54,10 +58,11 @@ public class EditTextWithClear extends NormalEditText {
      * 设置区域icon是否可见
      */
     private void setCLearIconVisible(boolean visible) {
+        Drawable[] drawables = getCompoundDrawablesRelative();
         if (visible) {
-            setCompoundDrawablesWithIntrinsicBounds(0, 0, drawableResId, 0);
+            setCompoundDrawablesWithIntrinsicBounds(drawables[0], drawables[1], ContextCompat.getDrawable(context, drawableResId), drawables[3]);
         } else {
-            setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            setCompoundDrawablesWithIntrinsicBounds(drawables[0], drawables[1], null, drawables[3]);
         }
     }
 
