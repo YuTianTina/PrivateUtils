@@ -20,6 +20,7 @@ public class EditTextWithClear extends NormalEditText {
     private Context context;
     private @DrawableRes int drawableResId;
 
+    Drawable[] drawables;
     public EditTextWithClear(Context context) {
         super(context);
     }
@@ -38,6 +39,7 @@ public class EditTextWithClear extends NormalEditText {
             //默认icon
             drawableResId = R.mipmap.clear_input_icon;
         }
+        drawables = getCompoundDrawablesRelative();
         setCLearIconVisible(false);
     }
 
@@ -58,12 +60,22 @@ public class EditTextWithClear extends NormalEditText {
      * 设置区域icon是否可见
      */
     private void setCLearIconVisible(boolean visible) {
-        Drawable[] drawables = getCompoundDrawablesRelative();
-        if (visible) {
-            setCompoundDrawablesWithIntrinsicBounds(drawables[0], drawables[1], ContextCompat.getDrawable(context, drawableResId), drawables[3]);
-        } else {
-            setCompoundDrawablesWithIntrinsicBounds(drawables[0], drawables[1], null, drawables[3]);
+        try {
+            if (visible) {
+                setCompoundDrawablesWithIntrinsicBounds(drawables[0], drawables[1], ContextCompat.getDrawable(context, drawableResId), drawables[3]);
+            } else {
+                setCompoundDrawablesWithIntrinsicBounds(drawables[0], drawables[1], null, drawables[3]);
+            }
+        }catch (NullPointerException e){
+            e.printStackTrace();
+            setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
         }
+    }
+
+    @Override
+    public void setCompoundDrawablesRelativeWithIntrinsicBounds(@DrawableRes int start, @DrawableRes int top, @DrawableRes int end, @DrawableRes int bottom) {
+        super.setCompoundDrawablesRelativeWithIntrinsicBounds(start, top, end, bottom);
+        drawables = getCompoundDrawablesRelative();
     }
 
     @Override
