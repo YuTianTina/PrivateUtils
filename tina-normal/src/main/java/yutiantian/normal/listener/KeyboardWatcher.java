@@ -1,4 +1,4 @@
-package com.azimolabs.keyboardwatcher;
+package yutiantian.normal.listener;
 
 import android.app.Activity;
 import android.os.Build;
@@ -10,8 +10,12 @@ import android.view.WindowManager;
 import java.lang.ref.WeakReference;
 
 /**
- * Created by froger_mcs on 21/03/16.
- */
+ * Description:  键盘变化监听工具
+ * @author YuTianTian
+ * @version
+ * @since
+*/
+
 public class KeyboardWatcher {
 
     private WeakReference<Activity> activityRef;
@@ -24,8 +28,9 @@ public class KeyboardWatcher {
         initialize();
     }
 
-    public void setListener(OnKeyboardToggleListener onKeyboardToggleListener) {
+    public KeyboardWatcher setListener(OnKeyboardToggleListener onKeyboardToggleListener) {
         onKeyboardToggleListenerRef = new WeakReference<>(onKeyboardToggleListener);
+        return this;
     }
 
     public void destroy() {
