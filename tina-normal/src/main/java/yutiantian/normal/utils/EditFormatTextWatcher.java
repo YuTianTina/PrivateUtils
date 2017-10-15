@@ -7,6 +7,7 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 
 /**
+ * 编辑框的格式化
  * Created by yutiantian on 2017/6/13.
  */
 

@@ -11,4 +11,10 @@
                 android:id="@+id/et_clear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+        <include
+            layout="@layout/include_search_keyboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            />
 </RelativeLayout>
