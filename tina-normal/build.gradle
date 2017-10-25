@@ -4,7 +4,7 @@ android {
     compileSdkVersion 23
     buildToolsVersion "25.0.0"
     publishNonDefault true
-    defaultPublishConfig 'release'
+    defaultPublishConfig 'simpleRelease'
     defaultConfig {
         minSdkVersion 18
         targetSdkVersion 22
@@ -13,6 +13,14 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+    }
+    productFlavors{
+        simple{
+
+        }
+        full{
+
+        }
     }
     buildTypes {
         release {
@@ -26,6 +34,11 @@ android {
     lintOptions{
         abortOnError false
     }
+}
+
+configurations{
+    simpleCompile
+    fullCompile
 }
 
 // Publish default flavour as main artifact, otherwise the maven pom is not generated
@@ -52,7 +65,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.0.1'
     compile 'com.android.support:support-v4:23.4.0'
     testCompile 'junit:junit:4.12'
-    debugCompile 'com.orhanobut:logger:2.1.1'
+    fullCompile 'com.orhanobut:logger:2.1.1'
 }
 
 //apply from: "bintrayUpload.gradle"
