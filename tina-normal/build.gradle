@@ -3,7 +3,8 @@ apply plugin: 'com.github.dcendents.android-maven'
 android {
     compileSdkVersion 23
     buildToolsVersion "25.0.0"
-
+    publishNonDefault true
+    defaultPublishConfig 'release'
     defaultConfig {
         minSdkVersion 18
         targetSdkVersion 22
@@ -17,6 +18,9 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug{
+
         }
     }
     lintOptions{
@@ -33,6 +37,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.0.1'
     compile 'com.android.support:support-v4:23.4.0'
     testCompile 'junit:junit:4.12'
+    debugCompile 'com.orhanobut:logger:2.1.1'
 }
 
 //apply from: "bintrayUpload.gradle"

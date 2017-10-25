@@ -1,16 +1,16 @@
 package yutiantian.normal.widget;
 
 import android.content.Context;
+import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.widget.EditText;
 
 /**
  * Created by Tina on 2017/3/16.
  * Description: 基础EditText,针对初始设定文本时,将光标移到最后一位
  */
 
-public class NormalEditText extends EditText {
+public class NormalEditText extends AppCompatEditText {
 
 
     public NormalEditText(Context context) {
