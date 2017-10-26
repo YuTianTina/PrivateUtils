@@ -2,9 +2,9 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 android {
     compileSdkVersion 23
-    buildToolsVersion "25.0.0"
+    buildToolsVersion '26.0.2'
     publishNonDefault true
-    defaultPublishConfig 'simpleRelease'
+    defaultPublishConfig 'fullRelease'
     defaultConfig {
         minSdkVersion 18
         targetSdkVersion 22
@@ -14,12 +14,13 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
+    flavorDimensions('default')
     productFlavors{
         simple{
-
+            dimension 'default'
         }
         full{
-
+            dimension 'default'
         }
     }
     buildTypes {
@@ -44,7 +45,7 @@ configurations{
 // Publish default flavour as main artifact, otherwise the maven pom is not generated
 if( android.productFlavors.size() > 0 ) {
     android.libraryVariants.all { variant ->
-        if( android.publishNonDefault && variant.name == android.defaultPublishConfig ) {
+        if(variant.name == android.defaultPublishConfig ) {
             def bundleTask = tasks["bundle${name.capitalize()}"]
             artifacts {
                 archives(bundleTask.archivePath) {
@@ -62,7 +63,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:support-v4:23.4.0'
     testCompile 'junit:junit:4.12'
     fullCompile 'com.orhanobut:logger:2.1.1'
