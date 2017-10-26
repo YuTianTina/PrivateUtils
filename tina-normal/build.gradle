@@ -35,8 +35,10 @@ android {
 }
 
 configurations{
-    simpleCompile
-    fullCompile
+    simpleReleaseCompile
+    simpleDebugCompile
+    fullReleaseCompile
+    fullDebugCompile
 }
 
 // Publish default flavour as main artifact, otherwise the maven pom is not generated
@@ -63,7 +65,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:support-v4:23.4.0'
     testCompile 'junit:junit:4.12'
-    compile  'com.orhanobut:logger:2.1.1'
+    fullReleaseCompile  'com.orhanobut:logger:2.1.1'
+    fullDebugCompile  'com.orhanobut:logger:2.1.1'
 }
 
 //apply from: "bintrayUpload.gradle"
