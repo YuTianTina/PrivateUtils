@@ -9,6 +9,8 @@
         tools:context="yutiantian.privateutils.MainActivity">
         <yutiantian.normal.widget.EditTextWithClear
                 android:id="@+id/et_clear"
+                android:imeOptions="actionDone"
+                android:inputType="number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         <include

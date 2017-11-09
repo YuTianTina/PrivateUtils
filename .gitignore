@@ -9,3 +9,4 @@
 .externalNativeBuild
 /bintray.properties
 /.idea
+gradlew
